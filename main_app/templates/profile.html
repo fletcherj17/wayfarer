@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{user.name}}</h1>
+<p>{{user.current_city}}</p>
+<p>{{user.join_date}}</p>
+<form action="" method="POST">
+    <input type="submit" class="btn btn-outline-success" value="Edit">
+</form>
+{% endblock %}

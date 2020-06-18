@@ -1,25 +1,29 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
+from .forms import SignUpForm
 from django.contrib.auth.decorators import login_required
+
+from .models import Profile
 
 
 # Create your views here.
 def home(request):
-    form = UserCreationForm() 
+    form = SignUpForm() 
     context = {'form': form}
     return render(request,'home.html', context)
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
+            current_city = form.cleaned_data ['current_city']
             user = form.save()
+            Profile.objects.create (user=user.pk, name=name, current_city=current_city)
             login(request,user)
             return redirect('profile')
     else:
-        form = UserCreationForm() 
+        form = SignUpForm() 
     context = {'form': form}
     return render(request,'home.html',context)
 
@@ -38,4 +42,6 @@ def user_logout(request):
     return redirect('home')
 
 def profile(request):
-    return render(request, 'profile.html')
+    user = Profile.objects.get(user = request.user)
+    context = {'user': user}
+    return render(request, 'profile.html', context)
