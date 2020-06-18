@@ -43,5 +43,13 @@ def user_logout(request):
 
 def profile(request):
     user = Profile.objects.get(user = request.user)
-    context = {'user': user}
-    return render(request, 'profile.html', context)
+    if request.method == 'POST':
+        user.name = request.POST['name']
+        user.current_city = request.POST['current_city']
+        user.save()
+        return redirect('profile')
+    else:
+        context = {'user': user}
+        return render(request, 'profile.html', context)
+    
+    
