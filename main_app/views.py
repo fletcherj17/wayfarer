@@ -18,6 +18,7 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             current_city = form.cleaned_data ['current_city']
+            name = form.cleaned_data ['name']
             user = form.save()
             Profile.objects.create (user=user.pk, name=name, current_city=current_city)
             login(request,user)
