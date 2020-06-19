@@ -21,13 +21,18 @@
     </button>
   <form class="collapse" id="collapseExample" action="{% url 'profile' %}" method="POST">
       {% csrf_token %}
-      <input type="text" name="name" value="{{user.name}}">
-      <input type="text" name="current_city" value="{{user.current_city}}">
+      <input type="text" name="name" value="{{profile.name}}">
+      <input type="text" name="current_city" value="{{profile.current_city}}">
       <input type="submit" class="btn btn-outline-success" value="Submit Changes">
   </form> 
-  <h1>{{user.name}}</h1>
-  <p>{{user.current_city}}</p>
-  <p>{{user.join_date}}</p>
+  <h1>{{profile.name}}</h1>
+  <p>{{profile.current_city}}</p>
+  <p>{{profile.join_date}}</p>
+  
+  {% for post in posts %}
+    <a href="{% url 'show_post' post.id %}">{{ post.title }}</a>
+  {% endfor %}
+
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#2b3752" fill-opacity="0.8" d="M0,224L1440,288L1440,320L0,320Z"></path></svg>
       
 </div>
