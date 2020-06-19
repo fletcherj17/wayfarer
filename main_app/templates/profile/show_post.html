@@ -1,32 +1,23 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-
+<head><link rel="stylesheet" href="{% static 'css/show_post.css' %}"></head>
  <!-- Page Content -->
  <div class="container">
-
     <div class="row">
-
       <!-- Post Content Column -->
-      <div class="col-lg-8">
-
+      <div class="col">
         <!-- Title -->
         <h1 class="mt-4">{{post.title}}</h1>
-
         <!-- Author -->
         <p class="lead">
-          by
-          <a href="#">{{post.author}}</a>
+          by {{post.author}}
         </p>
-
         <hr>
-
         <!-- Date/Time -->
         <p>Posted on January 1, 2019 at 12:00 PM</p>
-
         <hr>
-        <p>
+        <p id="post_content">
             {{post.content}}
         </p>
-      
 {% endblock %}

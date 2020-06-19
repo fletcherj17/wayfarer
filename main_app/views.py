@@ -47,13 +47,19 @@ def profile(request):
     profile = Profile.objects.get(user = request.user)
     posts = Post.objects.filter(author=request.user)
     if request.method == 'POST':
-        user.name = request.POST['name']
-        user.current_city = request.POST['current_city']
-        user.save()
+        profile.name = request.POST['name']
+        profile.current_city = request.POST['current_city']
+        profile.save()
         return redirect('profile')
     else:
         context = {'profile': profile, 'posts': posts}
         return render(request, 'profile.html', context)
+    
+def show_city(request,city_id):
+    city = City.objects.get(id=city_id)
+    posts = Post.objects.filter(city=city_id)
+    context = {'city':city, 'posts':posts}
+    return render(request,'cities.html',context)
 
 def show_post(request, post_id):
     post = Post.objects.get(id=post_id)

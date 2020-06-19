@@ -5,10 +5,10 @@
 <head>
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-<div class='curved upper'>
+ <div class='curved upper'>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="#f4f7ed" fill-opacity="1" d="M0,256L40,229.3C80,203,160,149,240,160C320,171,400,245,480,250.7C560,256,640,192,720,144C800,96,880,64,960,90.7C1040,117,1120,203,1200,229.3C1280,256,1360,224,1400,208L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,
     320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
-</div>
+</div> 
 <div class='curved'>
  
   <div class="row">
@@ -21,13 +21,25 @@
           <button class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             Edit Profile
           </button>
+          <p>
         <form class="collapse" id="collapseExample" action="{% url 'profile' %}" method="POST">
             {% csrf_token %}
-            <input type="text" name="name" value="{{profile.name}}">
-            <input type="text" name="current_city" value="{{profile.current_city}}">
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="inputPassword" name="name" value="{{profile.name}}" >
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">City</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="inputPassword" name="current_city" value="{{profile.current_city}}">
+            </div>
+        </div>
+            
             <input type="submit" class="btn btn-outline-success" value="Submit Changes">
         </form>
-      
+      </p>
     </div>
     <div class="col-sm-6">
       {% for post in posts %}
@@ -42,7 +54,11 @@
       {% endfor %}
     </div>
   </div>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,160L26.7,138.7C53.3,117,107,75,160,90.7C213.3,107,267,181,320,202.7C373.3,224,427,192,480,170.7C533.3,149,587,139,640,117.3C693.3,96,747,64,800,85.3C853.3,107,907,181,960,181.3C1013.3,181,1067,107,1120,96C1173.3,85,1227,139,1280,154.7C1333.3,171,1387,149,1413,138.7L1440,128L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="#2b3752" fill-opacity="1" d="M0,160L26.7,138.7C53.3,117,107,75,160,90.7C213.3,107,
+    267,181,320,202.7C373.3,224,427,192,480,170.7C533.3,149,587,139,640,117.3C693.3,96,747,
+    64,800,85.3C853.3,107,907,181,960,181.3C1013.3,181,1067,107,1120,96C1173.3,85,1227,139,1280,154.7C1333.3,
+    171,1387,149,1413,138.7L1440,128L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,
+    693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z"></path></svg>
 </div>
 
 

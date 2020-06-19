@@ -1,0 +1,22 @@
+:root {
+    /*  colors  */
+        --tan: #f4f7ed;
+        --lime: #86ee60;
+        --green: #2e6e65;
+        --blue: #2b3752;
+}
+body {
+    background-color: var(--tan);
+}
+.mt-4 {
+    color: var(--green);
+}
+p {
+    color: var(--blue);
+}
+#post_content {
+    padding: 50px;
+}
+main {
+    text-align: center;
+}

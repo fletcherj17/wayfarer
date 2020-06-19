@@ -14,6 +14,7 @@ class Profile(models.Model):
 
 class City(models.Model):
     name = models.CharField(max_length=50)
+    
 
     def __str__(self):
         return self.name
@@ -23,6 +24,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     city = models.ForeignKey(City, on_delete=models.CASCADE)
+    
 
     def __str__(self):
         return self.title

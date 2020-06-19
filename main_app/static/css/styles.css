@@ -2,7 +2,7 @@ body{
     width: 100vw;
     height: 100vh;  
     margin: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     
 }
 .curved {
@@ -15,7 +15,9 @@ body{
 .card a{ 
     color: #2e6e65;
 }
-
+.card a:hover{
+    font-size: 20px;
+}
 .curved img {
     
         
@@ -32,4 +34,7 @@ body{
 }
 .curved svg{
     display: block;
+}
+.curved .col-sm-6{
+  margin-right: -20px;
 }
