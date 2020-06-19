@@ -1,7 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{post.title}}</h1>
-<h3>{{post.author}}</h3>
-<h3>{{post.content}}</h3>
+
+ <!-- Page Content -->
+ <div class="container">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">{{post.title}}</h1>
+
+        <!-- Author -->
+        <p class="lead">
+          by
+          <a href="#">{{post.author}}</a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>Posted on January 1, 2019 at 12:00 PM</p>
+
+        <hr>
+        <p>
+            {{post.content}}
+        </p>
+      
 {% endblock %}

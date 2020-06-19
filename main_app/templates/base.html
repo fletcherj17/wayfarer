@@ -10,6 +10,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="{% static 'jquery/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>Wayfarer</title>
     {% block head %}
     {% endblock %}
@@ -52,9 +53,20 @@
         <div class="modal-body">
             <form action="{% url 'login' %}" method="POST">
             {% csrf_token %}
-                <p>Username: <input type="text" name="username"></p>
-                <p>Password: <input type="password" name="password"></p>
-                <input type="submit" class="btn btn-primary" value="Login">
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Username</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassword" placeholder="Username" name="username">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+                </div>
+              </div>
+               
+                <input type="submit" class="btn btn-success" value="Login">
             </form>
             
             

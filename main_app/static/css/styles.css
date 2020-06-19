@@ -1,7 +1,8 @@
 body{
     width: 100vw;
-     height: 100vh;  
+    height: 100vh;  
     margin: 0;
+    overflow: hidden;
     
 }
 .curved {
@@ -17,15 +18,18 @@ body{
 
 .curved img {
     
-        vertical-align: middle;
+        
         width: 100px;
         height: 100px;
         border-radius: 50%;
-      
-}
+        
+    }
 
 .curved.upper {
     background-color: #2b3752;
     margin-top: 0;
     
+}
+.curved svg{
+    display: block;
 }
