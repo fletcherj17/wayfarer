@@ -11,29 +11,37 @@
 </div>
 <div class='curved'>
  
-    <h2>Hello User</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing
-      Lorem ipsum dolor sit amet consectetur adipisicing
-      Lorem ipsum dolor sit amet consectetur adipisicing 
-    </p>
-    <button class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Edit Profile
-    </button>
-  <form class="collapse" id="collapseExample" action="{% url 'profile' %}" method="POST">
-      {% csrf_token %}
-      <input type="text" name="name" value="{{profile.name}}">
-      <input type="text" name="current_city" value="{{profile.current_city}}">
-      <input type="submit" class="btn btn-outline-success" value="Submit Changes">
-  </form> 
-  <h1>{{profile.name}}</h1>
-  <p>{{profile.current_city}}</p>
-  <p>{{profile.join_date}}</p>
-  
-  {% for post in posts %}
-    <a href="{% url 'show_post' post.id %}">{{ post.title }}</a>
-  {% endfor %}
-
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#2b3752" fill-opacity="0.8" d="M0,224L1440,288L1440,320L0,320Z"></path></svg>
+  <div class="row">
+    <div class="col-sm-6">
+     
+          <img src="{% static 'images/avatar.png'%}" alt='avatar'>
+          <h3 class="card-title">{{profile.name}}</h3>
+          <p class="card-text">{{profile.current_city}}</p>
+          <p class="card-text">{{profile.join_date}}</p>
+          <button class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Edit Profile
+          </button>
+        <form class="collapse" id="collapseExample" action="{% url 'profile' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="name" value="{{profile.name}}">
+            <input type="text" name="current_city" value="{{profile.current_city}}">
+            <input type="submit" class="btn btn-outline-success" value="Submit Changes">
+        </form>
+      
+    </div>
+    <div class="col-sm-6">
+      {% for post in posts %}
+      <div class="card">
+       
+        <div class="card-body"> 
+          <a href="{% url 'show_post' post.id %}">{{ post.title }}</a>
+        
+        </div>
+        
+      </div>
+      {% endfor %}
+    </div>
+  </div>
       
 </div>
 

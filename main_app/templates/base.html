@@ -29,7 +29,7 @@
                 <button type="button" class="btn btn-outline-success mr-sm-2" id="myInput" data-toggle="modal" data-target="#exampleModal">
                     Log in</button> 
                     
-                <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="myInput" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="myInput" data-toggle="modal" data-target="#example1Modal">
                     Sign up</button>
                 {% endif %}
             </form>
@@ -56,22 +56,38 @@
                 <p>Password: <input type="password" name="password"></p>
                 <input type="submit" class="btn btn-primary" value="Login">
             </form>
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
-                
-            </div>
-            <form action="{% url 'signup' %}" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
             
-                <input type="submit" class="btn btn-primary" value="Signup">
-            </form>
+            
         </div>
         
     </div>
     </div>
 </div>
 <!-- modal ends -->
+        <!-- Modal -->
+        <div class="modal fade" id="example1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                   
+                    <form action="{% url 'signup' %}" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    
+                        <input type="submit" class="btn btn-primary" value="Signup">
+                    </form>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+        <!-- modal ends -->
     </main>
 </body>
 </html>
