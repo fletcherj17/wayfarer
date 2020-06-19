@@ -16,8 +16,8 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-light" style="background-color: #2E6E65;">
-            <a class="navbar-brand">Wayfarer</a>
+        <nav class="navbar navbar-light" style="background-color: #f4f7ed;">
+            <a class="navbar-brand" href="{% url 'home' %}">Wayfarer</a>
             {%if user.is_authenticated%}
                 <form class="form-inline" action="{% url 'logout' %}" method="POST">
                     {% csrf_token %}
