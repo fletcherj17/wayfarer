@@ -1,0 +1,25 @@
+body{
+    width: 100vw;
+    /* height: 100vh;  */
+    margin: 0;
+    overflow: hidden;
+}
+.curved {
+    background: #f4f7ed;
+    color: #2e6e65;
+    /* text-align: center; */
+
+}
+.curved h1{
+    font-size: 6rem;
+    margin-top: 0;
+}
+.curved p{
+    font-size: 1rem;
+    /* margin: 0 5rem 5rem; */
+}
+
+.curved.upper {
+    background-color: #2b3752;
+    margin-top: 0;
+}
