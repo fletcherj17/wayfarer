@@ -28,15 +28,19 @@
                 </div>
             </div>
         </div>
+        
     <div class="col-sm-4" >
         <div class="container1">
+            {% if city.id == 6 %}
             <div class="city-card">
-                <h3>San Francisco</h3>
+                <h3>{{city.name}}</h3>
                 <img class="mr-3" src="{% static 'images/sanfrancisco.jpeg' %}" alt="Generic placeholder image" width='250' height='150'>
            
             </div>
+            <div class="city-card">
                 <h3 class="post">Posts</h3>
-            
+                <button type="submit" class="btnadd">+</button>
+            </div>
             {% for post in posts %}
             <div class="card city">
                 <div class="media">
@@ -48,6 +52,7 @@
                 </div>
             </div>
             {% endfor %}
+            {% endif %}
         </div>
         
     </div>

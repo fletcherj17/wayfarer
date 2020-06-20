@@ -57,7 +57,7 @@ def profile(request):
     
 def show_city(request,city_id):
     city = City.objects.get(id=city_id)
-    posts = Post.objects.filter(city=city_id)
+    posts = Post.objects.filter(city=city_id).order_by('-date')
     context = {'city':city, 'posts':posts}
     return render(request,'cities.html',context)
 

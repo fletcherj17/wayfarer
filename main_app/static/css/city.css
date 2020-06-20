@@ -16,7 +16,7 @@ body{
     border: 1px solid white;
     cursor: pointer;
     border-radius: 10px;
-    padding: 2px;
+    padding: 10px;
 }
 
 .card img{
@@ -26,7 +26,7 @@ body{
 .container {
     border: 1px solid #86ee60;
     border-radius: 10px;
-    height: 400px;
+    height: 450px;
     margin-left: 60px;
     margin-top: 30px;
     background-color: #f4f7ed;
@@ -36,11 +36,12 @@ body{
 .container h3{
     text-align: center;
     color: #2e6e65;
+    margin-top: 5px;
 }
 .container1 {
     border: 1px solid #86ee60;
     border-radius: 10px;
-    height: 400px;
+    height: 450px;
     margin-top: 30px;
     background-color: #f4f7ed;
     width: 550px;
@@ -51,11 +52,11 @@ body{
 .city-card {
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
     color: white;
    
 }
 .city-card h3 {
+    
     margin-top: 30px;
     margin-left: 30px;
     font-size: 1.5em;
@@ -73,6 +74,17 @@ body{
     color: #2e6e65;
 }
 .post {
-    margin-left: 30px;
     color: white;
+}
+.btnadd{
+    margin-top: 5px;
+    background-color: #f4f7ed;
+    border: 2px solid green;
+    border-radius: 80%;
+    color: #2b3752;
+    font-size: 30px;
+    margin-left: 390px;
+}
+.btnadd:hover{
+    background-color: #86ee60;
 }

@@ -26,7 +26,9 @@ class Post(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     
-
+    class Meta:
+        ordering: ('-date',)
+        
     def __str__(self):
         return self.title
 
