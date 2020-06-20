@@ -19,12 +19,10 @@ body{
     font-size: 20px;
 }
 .curved img {
-    
-        
+         
         width: 100px;
         height: 100px;
-        border-radius: 50%;
-        
+        border-radius: 50%;    
     }
 
 .curved.upper {
@@ -36,5 +34,5 @@ body{
     display: block;
 }
 .curved .col-sm-6{
-  margin-right: -20px;
+  margin-right: -60px;
 }

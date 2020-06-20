@@ -1,8 +1,59 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<p>{{city.name}}</p>
+<head>
+    <link rel="stylesheet" href="{% static 'css/city.css' %}">
+  </head>
+  
+    <div class="row">
+        
+        <div class="col-sm-4" >
+            <div class="container">
+                <h3 > Cities</h3>
+                <div class='card '>
+                    <img class="mr-3" src="{% static 'images/sanfrancisco.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
+                    <h5 class="mt-0">San Francisco</h5>
+                </div>
+                <div class='card '>
+                    <img class="mr-3" src="{% static 'images/london.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
+                    <h5 class="mt-0">London</h5>
+                </div>
+                <div class='card '>
+                <img class="mr-3" src="{% static 'images/sydney.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
+                <h5 class="mt-0">Sydney</h5>
+                </div>
+                <div class='card '>
+                <img class="mr-3" src="{% static 'images/newyork.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
+                <h5 class="mt-0">Seattle</h5>
+                </div>
+            </div>
+        </div>
+    <div class="col-sm-4" >
+        <div class="container1">
+            <div class="city-card">
+                <h3>San Francisco</h3>
+                <img class="mr-3" src="{% static 'images/sanfrancisco.jpeg' %}" alt="Generic placeholder image" width='250' height='150'>
+           
+            </div>
+                <h3 class="post">Posts</h3>
+            
+            {% for post in posts %}
+            <div class="card city">
+                <div class="media">
+                        <img class="mr-3" src="{% static 'images/sanfrancisco.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
+                    <div class="media-body">
+                    <a href="{% url 'show_post' post.id %}">{{ post.title }}</a>
+                    <p>{{post.content}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
+<!-- <p>{{city.name}}</p>
 {% for post in posts %}
 <p>{{post.title}}</p>
-{% endfor %}
+{% endfor %} -->
 {% endblock %} 

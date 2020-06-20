@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 320px;
+    margin: 0 auto;
+    margin-top: 10px;
+    color: white;
+    background-color: #2e6e65;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+.card img{
+    margin-left: 5px;
+    border-radius: 50%;
+}
+.container {
+    border: 1px solid #86ee60;
+    border-radius: 10px;
+    height: 400px;
+    margin-left: 60px;
+    margin-top: 30px;
+    background-color: #f4f7ed;
+    width: 350px;
+
+}
+.container h3{
+    text-align: center;
+    color: #2e6e65;
+}
+.container1 {
+    border: 1px solid #86ee60;
+    border-radius: 10px;
+    height: 400px;
+    margin-top: 30px;
+    background-color: #f4f7ed;
+    width: 550px;
+    margin-left: 40px;
+    background-color: #2e6e65;
+    
+}
+.city-card {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    color: white;
+   
+}
+.city-card h3 {
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 1.5em;
+}
+.city-card img{
+    margin-top: 10px;
+    margin-left: 80px;
+    border-radius: 10px;
+    
+}
+.city {
+    width: 500px;
+    padding: 10px;
+    background-color: #f4f7ed;
+    color: #2e6e65;
+}
+.post {
+    margin-left: 30px;
+    color: white;
+}

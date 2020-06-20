@@ -1,22 +1,33 @@
-:root {
-    /*  colors  */
-        --tan: #f4f7ed;
-        --lime: #86ee60;
-        --green: #2e6e65;
-        --blue: #2b3752;
+
+body{
+    width: 100vw;
+    height: 100vh;  
+    margin: 0;
+    
 }
-body {
-    background-color: var(--tan);
+.curved {
+    background: #f4f7ed;
+    color: #2e6e65;
+    text-align: center;
+    margin-top: 0;
+
+}
+.curved.upper{
+    margin-top: 0;
+    background-color: #2b3752 ;
 }
 .mt-4 {
-    color: var(--green);
+    color: #2e6e65;
 }
 p {
-    color: var(--blue);
+    color: #2b3752;
+    word-wrap: break-word;
 }
 #post_content {
     padding: 50px;
 }
-main {
-    text-align: center;
+
+
+.curved svg{
+    display: block;
 }
