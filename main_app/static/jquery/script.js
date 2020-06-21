@@ -4,3 +4,4 @@ $('#exampleModal').on('shown.bs.modal', function () {
   $('#example1Modal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
   })
+
