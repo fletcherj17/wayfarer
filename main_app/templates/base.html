@@ -22,9 +22,14 @@
             {%if user.is_authenticated%}
                 <form class="form-inline" action="{% url 'logout' %}" method="POST">
                     {% csrf_token %}
-                    <input type="submit" class="btn btn-outline-success my-2 my-sm-0" id="logOut" value="Log out">
-
+                    <input type="submit" class="btn btn-outline-success mr-sm-2" id="logOut" value="Log out">
+                    
+                    <a href="{% url 'profile' %}" class="btn btn-outline-success my-2 my-sm-0" >Profile</a>
+                
                 </form>
+                
+                    
+               
                 {% else %}
             <form class="form-inline">
                 {% csrf_token %}

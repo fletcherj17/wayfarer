@@ -36,3 +36,6 @@ body{
 .curved .col-sm-6{
   margin-right: -60px;
 }
+.col-sm-6 .card{
+    width: 390px;
+}

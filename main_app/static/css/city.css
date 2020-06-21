@@ -72,6 +72,11 @@ body{
     padding: 10px;
     background-color: #f4f7ed;
     color: #2e6e65;
+    
+}
+.card .media a{
+    color: #2b3752;
+    font-size: 20px;
 }
 .post {
     color: white;

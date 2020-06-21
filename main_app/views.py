@@ -65,4 +65,6 @@ def show_post(request, post_id):
     post = Post.objects.get(id=post_id)
     context = {'post': post}
     return render(request, 'profile/show_post.html', context)
-    
+
+def post_create(request):
+    pass
