@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'post_create' %}" method="POST" id="loginForm">
+    {% csrf_token %}
+    <div class="form-group row">
+        
+        <div class="col-sm-10">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Post Title</label>
+          <input type="text" class="form-control" id="inputPassword" placeholder="Username" name="title">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Post Content</label>
+          <input type="textarea" class="form-control" id="inputPassword" placeholder="Username" name="content">
+        </div>
+        <input type="submit" class="btn" value="Create Post">
+    </div>
+    </form>
+{% endblock %}

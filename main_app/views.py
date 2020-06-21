@@ -51,13 +51,20 @@ def profile(request):
         profile.save()
         return redirect('profile')
     else:
-        context = {'profile': profile, 'posts': posts}
+        cities = City.objects.all()
+        context = {'profile': profile, 'posts': posts,'cities':cities}
         return render(request, 'profile.html', context)
-    
+
+def cities(request):
+    cities = City.objects.all()
+    context = {'cities':cities}
+    return render(request,'cities.html',context)
+
 def show_city(request,city_id):
+    cities = City.objects.all()
     city = City.objects.get(id=city_id)
     posts = Post.objects.filter(city=city_id).order_by('-date')
-    context = {'city':city, 'posts':posts}
+    context = {'city':city, 'posts':posts,'cities':cities}
     return render(request,'cities.html',context)
 
 def show_post(request, post_id):
@@ -65,5 +72,13 @@ def show_post(request, post_id):
     context = {'post': post}
     return render(request, 'profile/show_post.html', context)
 
-def post_create(request):
-    pass
+def post_create(request,city_id):
+    title = request.POST['title']
+    content = request.POST['content']
+    city = City.objects.get(id=city_id)
+    author = request.user
+    Post.objects.create(title=title,content=content,city=city,author=author)
+    return redirect('cities')
+
+def add_post(request,city_id):
+    return render(request,'add_post.html')

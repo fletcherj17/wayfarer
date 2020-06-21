@@ -14,7 +14,8 @@ class Profile(models.Model):
 
 class City(models.Model):
     name = models.CharField(max_length=50)
-    
+    url = models.CharField(max_length=100)
+   
 
     def __str__(self):
         return self.name

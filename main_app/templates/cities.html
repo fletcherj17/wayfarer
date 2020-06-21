@@ -10,11 +10,17 @@
         <div class="col-sm-4" >
             <div class="container">
                 <h3 > Cities</h3>
+                {% for city in cities %}
+                <a href="/cities/{{city.id}}/">
                 <div class='card '>
-                    <img class="mr-3" src="{% static 'images/sanfrancisco.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
-                    <h5 class="mt-0">San Francisco</h5>
+
+                    <img class="mr-3" src="/static/{{city.url}}" alt="Generic placeholder image" width='64' height='64'> 
+                    <h5 class="mt-0">{{ city.name }}</h5>
+                
                 </div>
-                <div class='card '>
+                </a>    
+                {% endfor %}
+                <!-- <div class='card '>
                     <img class="mr-3" src="{% static 'images/london.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
                     <h5 class="mt-0">London</h5>
                 </div>
@@ -25,21 +31,23 @@
                 <div class='card '>
                 <img class="mr-3" src="{% static 'images/newyork.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
                 <h5 class="mt-0">Seattle</h5>
-                </div>
+                </div> -->
             </div>
         </div>
         
     <div class="col-sm-4" >
         <div class="container1">
-            {% if city.name == 'San Francisco' %}
+            
             <div class="city-card">
                 <h3>{{city.name}}</h3>
-                <img class="mr-3" src="{% static 'images/sanfrancisco.jpeg' %}" alt="Generic placeholder image" width='250' height='150'>
+                <img class="mr-3" src="/static/{{city.url}}" alt="Generic placeholder image" width='250' height='150'>
            
             </div>
             <div class="city-card">
                 <h3 class="post">Posts</h3>
-                <button type="submit" class="btnadd">+</button>
+               <a href="/cities/{{city.id}}/add_post">
+                <button type="submit" class="btnadd" >+</button>
+               </a>
             </div>
             {% for post in posts %}
             <div class="card city">
@@ -52,7 +60,7 @@
                 </div>
             </div>
             {% endfor %}
-            {% endif %}
+           
         </div>
         
     </div>
