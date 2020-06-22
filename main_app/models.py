@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinLengthValidator
 
 # Create your models here.
 
@@ -21,9 +22,9 @@ class City(models.Model):
         return self.name
 
 class Post(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField('Title', max_length=200, validators=[MinLengthValidator(1)])
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.TextField()
+    content = models.TextField(blank = False, null = False)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     

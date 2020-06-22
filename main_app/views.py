@@ -10,12 +10,7 @@ from .models import Profile, City, Post
 
 # Create your views here.
 def home(request):
-    form = SignUpForm() 
-    context = {'form': form}
-    return render(request,'home.html', context)
-
-def signup(request):
-    error_message = ""
+    error_message = ''
     if request.method == 'POST':
         form = SignUpForm(request.POST) 
         if form.is_valid():
@@ -27,11 +22,11 @@ def signup(request):
             return redirect('profile')
         else:
             error_message = 'Invalid form'
-            
     else:
         form = SignUpForm() 
-    context = {'form': form,'error_msg': error_message}
-    return render(request,'home.html',context)
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'home.html', context)
+
 
 def user_login(request):
     username = request.POST['username']
@@ -82,6 +77,7 @@ def add_post(request,city_id):
     if request.method == 'POST':
         title = request.POST['title']
         content = request.POST['content']
+        print(len(title), len(content))
         city = City.objects.get(pk=city_id) 
         author = request.user
         post = Post.objects.create(title=title,content=content,city=city,author=author)
