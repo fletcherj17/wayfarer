@@ -86,3 +86,16 @@ def add_post(request,city_id):
         city = City.objects.get(id=city_id)
         context = {'city': city}
         return render(request,'add_post.html', context)
+
+def edit_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    post.title = request.POST['title']
+    post.content = request.POST['content']
+    post.save()
+    return redirect('show_post', post_id=post.id)
+
+def delete_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    city = post.city
+    post.delete()
+    return redirect('cities', city_id=city.id)

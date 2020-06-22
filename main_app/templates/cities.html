@@ -20,18 +20,6 @@
                 </div>
                 </a>    
                 {% endfor %}
-                <!-- <div class='card '>
-                    <img class="mr-3" src="{% static 'images/london.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
-                    <h5 class="mt-0">London</h5>
-                </div>
-                <div class='card '>
-                <img class="mr-3" src="{% static 'images/sydney.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
-                <h5 class="mt-0">Sydney</h5>
-                </div>
-                <div class='card '>
-                <img class="mr-3" src="{% static 'images/newyork.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
-                <h5 class="mt-0">Seattle</h5>
-                </div> -->
             </div>
         </div>
         
@@ -45,9 +33,9 @@
             </div>
             <div class="city-card">
                 <h3 class="post">Posts</h3>
-               <a href="/cities/{{city.id}}/add_post">
-                <button type="submit" class="btnadd" >+</button>
-               </a>
+             
+                <button type="submit" class="btnadd" id="myInput" data-toggle="modal" data-target="#exampleModal" >+</button>
+              
             </div>
             {% for post in posts %}
             <div class="card city">
@@ -65,8 +53,36 @@
         
     </div>
 </div>
-<!-- <p>{{city.name}}</p>
-{% for post in posts %}
-<p>{{post.title}}</p>
-{% endfor %} -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Log in</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <form action="{% url 'add_post' city.id %}" method="POST" id="loginForm">
+                {% csrf_token %}
+                <div class="form-group row">
+                    
+                    <div class="col-sm-10">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Post Title</label>
+                      <input type="text" class="form-control" id="inputPassword" placeholder="Title" name="title">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Post Content</label>
+                      <input type="textarea" class="form-control" id="inputPassword" placeholder="Content" name="content">
+                    </div>
+                    <input type="submit" class="btn" value="Create Post">
+                </div>
+                </form>
+            
+            
+        </div>
+        
+    </div>
+    </div>
+</div>
+<!-- End  Modal -->
 {% endblock %} 
