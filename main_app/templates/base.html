@@ -19,8 +19,8 @@
 <body>
     <header>
         <nav class="navbar navbar-light" style="background-color: #f4f7ed;">
-            <a class="navbar-brand" href="{% url 'home' %}">Wayfarer</a>
             {%if user.is_authenticated%}
+            <a class="navbar-brand" href="/cities/1/">Wayfarer</a>
                 <form class="form-inline" action="{% url 'logout' %}" method="POST">
                     {% csrf_token %}
                     <input type="submit" class="btn btn-outline-success mr-sm-2" id="logOut" value="Log out">
@@ -29,9 +29,8 @@
                 
                 </form>
                 
-                    
-               
                 {% else %}
+                <a class="navbar-brand" href="{% url 'home' %}">Wayfarer</a>
             <form class="form-inline">
                 {% csrf_token %}
                 <button type="button" class="btn btn-outline-success mr-sm-2" id="myInput" data-toggle="modal" data-target="#exampleModal">

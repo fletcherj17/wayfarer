@@ -28,10 +28,7 @@
       </div>
     </div>
     <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#exampleModal">Edit</button>
-    <form action="{% url 'delete_post' post.id %}" method="POST">
-      {% csrf_token %}
-      <input class="btn btn-outline-success" type="submit" value="Delete">
-    </form>
+    <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#example1Modal">Delete</button>
   </div>
       </div>
   <!-- Modal -->
@@ -39,7 +36,7 @@
   <div class="modal-dialog">
   <div class="modal-content">
       <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Log in</h5>
+      <h5 class="modal-title" id="exampleModalLabel">Edit {{post.title}}</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
       </button>
@@ -55,7 +52,7 @@
                     <label for="inputPassword" class="col-sm-2 col-form-label">Post Content</label>
                     <input type="textarea" class="form-control" id="inputPassword" value="{{post.content}}" name="content">
                   </div>
-                  <input type="submit" class="btn" value="Create Post">
+                  <input type="submit" class="btn" value="Submit Changes">
               </div>
               </form>
           
@@ -66,4 +63,25 @@
   </div>
 </div>
 <!-- End  Modal -->
+<div class="modal fade" id="example1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Delete {{post.title}}</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+          <p>Are you sure you want to delete {{post.title}}?</p>
+          <form action="{% url 'delete_post' post.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#example1Modal">Confirm Delete</button>
+          </form>
+          
+      </div>
+      
+  </div>
+  </div>
+</div>
 {% endblock %}
