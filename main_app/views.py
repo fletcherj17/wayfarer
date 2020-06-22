@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from .forms import SignUpForm
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Profile, City, Post
 
@@ -14,8 +15,9 @@ def home(request):
     return render(request,'home.html', context)
 
 def signup(request):
+    error_message = ""
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = SignUpForm(request.POST) 
         if form.is_valid():
             name = form.cleaned_data ['name']
             current_city = form.cleaned_data ['current_city'] 
@@ -23,9 +25,12 @@ def signup(request):
             Profile.objects.create(user=user, name=name, current_city=current_city)
             login(request,user)
             return redirect('profile')
+        else:
+            error_message = 'Invalid form'
+            
     else:
         form = SignUpForm() 
-    context = {'form': form}
+    context = {'form': form,'error_msg': error_message}
     return render(request,'home.html',context)
 
 def user_login(request):

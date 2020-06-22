@@ -26,7 +26,7 @@ body{
 .container {
     border: 1px solid #86ee60;
     border-radius: 10px;
-    height: 450px;
+    height: 650px;
     margin-left: 60px;
     margin-top: 30px;
     background-color: #f4f7ed;
@@ -41,7 +41,7 @@ body{
 .container1 {
     border: 1px solid #86ee60;
     border-radius: 10px;
-    height: 450px;
+    height: 650px;
     margin-top: 30px;
     background-color: #f4f7ed;
     width: 550px;

@@ -93,11 +93,13 @@
                 </button>
                 </div>
                 <div class="modal-body">
-                   
+                   {% if error_msg %}
+                   <p>{{error_msg}}</p>
+                   {%endif%}
                     <form action="{% url 'signup' %}" method="POST" novalidate>
                         {% csrf_token %}
                         {{ form|crispy }}
-                    
+                        
                         <input type="submit" class="btn btn-primary" value="Signup">
                     </form>
                 </div>
