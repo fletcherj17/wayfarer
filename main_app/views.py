@@ -34,7 +34,7 @@ def user_login(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        return redirect('profile')
+        return redirect(f'/cities/8/')
     else:
         return HttpResponse("Error")
 
@@ -96,6 +96,5 @@ def edit_post(request, post_id):
 
 def delete_post(request, post_id):
     post = Post.objects.get(id=post_id)
-    city = post.city
     post.delete()
-    return redirect('cities', city_id=city.id)
+    return redirect(f'/cities/{post.city.id}')

@@ -28,7 +28,8 @@
       </div>
     </div>
     <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#exampleModal">Edit</button>
-    <form action="{% url 'delete_post' post.id%}" method="POST">
+    <form action="{% url 'delete_post' post.id %}" method="POST">
+      {% csrf_token %}
       <input class="btn btn-outline-success" type="submit" value="Delete">
     </form>
   </div>
