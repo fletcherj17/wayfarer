@@ -71,14 +71,18 @@ def show_post(request, post_id):
     post = Post.objects.get(id=post_id)
     context = {'post': post}
     return render(request, 'profile/show_post.html', context)
-
-def post_create(request,city_id):
-    title = request.POST['title']
-    content = request.POST['content']
-    city = City.objects.get(id=city_id)
-    author = request.user
-    Post.objects.create(title=title,content=content,city=city,author=author)
-    return redirect('cities')
+    
 
 def add_post(request,city_id):
-    return render(request,'add_post.html')
+    if request.method == 'POST':
+        title = request.POST['title']
+        content = request.POST['content']
+        city = City.objects.get(pk=city_id) 
+        author = request.user
+        post = Post.objects.create(title=title,content=content,city=city,author=author)
+        post.save()
+        return redirect('show_city', city_id=city.id)
+    else:
+        city = City.objects.get(id=city_id)
+        context = {'city': city}
+        return render(request,'add_post.html', context)
