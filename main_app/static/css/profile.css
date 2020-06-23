@@ -23,10 +23,13 @@ body{
 
 .card a{ 
     color: #2e6e65;
+    transition: .3s;
 }
+
 .card a:hover{
     font-size: 20px;
 }
+
 .curved img {
          
         width: 100px;

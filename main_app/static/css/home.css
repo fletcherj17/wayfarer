@@ -1,6 +1,6 @@
- .btn {
-   color: white; 
-   background-color: #2E6E65;
+.btn {
+  color: white; 
+  background-color: #2E6E65;
    
 }
 .btn:hover{
@@ -8,5 +8,10 @@
 }
 #logo{
   font-family: 'Notable', sans-serif;
+  color: #2E6E65;
+}
+
+body {
+  font-family: Raleway, sans-serif;
 }
 

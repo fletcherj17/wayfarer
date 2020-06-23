@@ -45,7 +45,7 @@ body{
     border: 1px solid #86ee60;
     border-radius: 10px;
     overflow: scroll;
-    max-height: 600px;
+    height: 500px;
     margin-top: 40px;
     background-color: #f4f7ed;
     width: 600px;
