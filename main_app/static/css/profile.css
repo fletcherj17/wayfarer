@@ -1,0 +1,50 @@
+body{
+    width: 100vw;
+    height: 100vh;  
+    margin: 0;
+    /* overflow: hidden; */
+    
+}
+.curved {
+    background: #f4f7ed;
+    color: #2e6e65;
+    text-align: center;
+    margin-top: 0;
+
+}
+
+.card{
+    margin-bottom: 0.5em;
+}
+
+.pagination li{
+    padding: 10px;
+}
+
+.card a{ 
+    color: #2e6e65;
+}
+.card a:hover{
+    font-size: 20px;
+}
+.curved img {
+         
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;    
+    }
+
+.curved.upper {
+    background-color: #2b3752;
+    margin-top: 0;
+    
+}
+.curved svg{
+    display: block;
+}
+.curved .col-sm-6{
+  margin-right: -60px;
+}
+.col-sm-6 .card{
+    width: 390px;
+}

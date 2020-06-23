@@ -3,7 +3,7 @@
 {% block content %}
 
 <head>
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 </head>
  <div class='curved upper'>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="#f4f7ed" fill-opacity="1" d="M0,256L40,229.3C80,203,160,149,240,160C320,171,400,245,480,250.7C560,256,640,192,720,144C800,96,880,64,960,90.7C1040,117,1120,203,1200,229.3C1280,256,1360,224,1400,208L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,
@@ -42,8 +42,26 @@
       </p>
     </div>
     <div class="col-sm-6">
-     
-      {% for post in posts %}
+      <div class="pagination">
+        <span class="step-links">
+           
+           {% if page.has_previous %}
+          
+           <a href="?page={{ page.previous_page_number }}"><<</a>
+           
+           {% endif %}
+           
+           <span class="current">
+               {{ page.number }}
+           </span>
+           
+           {% if page.has_next %}
+           <a href="?page={{ page.next_page_number }}">>></a>
+           
+           {% endif %}
+       </span>
+    </div>
+      {% for post in page %}
       <div class="card">
        
         <div class="card-body"> 
