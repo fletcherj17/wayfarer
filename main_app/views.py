@@ -15,13 +15,8 @@ def home(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST) 
         if form.is_valid():
-<<<<<<< HEAD
-            current_city = form.cleaned_data ['current_city']
-            name = form.cleaned_data ['name']
-=======
             name = form.cleaned_data ['name']
             current_city = form.cleaned_data ['current_city'] 
->>>>>>> submaster
             user = form.save()
             Profile.objects.create(user=user, name=name, current_city=current_city)
             login(request,user)
@@ -55,6 +50,9 @@ def user_logout(request):
 def profile(request):
     profile = Profile.objects.get(user = request.user)
     posts = Post.objects.filter(author=request.user)
+    paginator = Paginator(posts, 3)
+    page_number = request.GET.get('page', 1)
+    page = paginator.get_page(page_number)
     if request.method == 'POST':
         profile.name = request.POST['name']
         profile.current_city = request.POST['current_city']
@@ -62,7 +60,7 @@ def profile(request):
         return redirect('profile')
     else:
         cities = City.objects.all()
-        context = {'profile': profile, 'posts': posts,'cities':cities}
+        context = {'profile': profile, 'posts': posts,'cities':cities, 'page': page}
         return render(request, 'profile.html', context)
 
 # Length validator
