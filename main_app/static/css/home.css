@@ -6,5 +6,7 @@
 .btn:hover{
     background-color: #86ee60;
 }
-
+#logo{
+  font-family: 'Notable', sans-serif;
+}
 
