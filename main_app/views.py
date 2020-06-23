@@ -5,6 +5,7 @@ from .forms import SignUpForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Profile, City, Post
+from django.core.paginator import Paginator
 
 
 
@@ -64,7 +65,10 @@ def show_city(request,city_id):
     cities = City.objects.all()
     city = City.objects.get(id=city_id)
     posts = Post.objects.filter(city=city_id).order_by('-date')
-    context = {'city':city, 'posts':posts,'cities':cities}
+    paginator = Paginator(posts, 4)
+    page_number = request.GET.get('page', 1)
+    page = paginator.get_page(page_number)
+    context = {'city':city, 'posts':posts,'cities':cities,'page':page}
     return render(request,'cities.html',context)
 
 def show_post(request, post_id):
@@ -77,7 +81,6 @@ def add_post(request,city_id):
     if request.method == 'POST':
         title = request.POST['title']
         content = request.POST['content']
-        print(len(title), len(content))
         city = City.objects.get(pk=city_id) 
         author = request.user
         post = Post.objects.create(title=title,content=content,city=city,author=author)

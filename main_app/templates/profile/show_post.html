@@ -45,13 +45,17 @@
           <form action="{% url 'edit_post' post.id %}" method="POST" id="loginForm">
               {% csrf_token %}
               <div class="form-group row">
-                  
+                <label for="inputPassword" class="col-sm-2 col-form-label">Title</label>
                   <div class="col-sm-10">
-                      <label for="inputPassword" class="col-sm-2 col-form-label">Post Title</label>
-                    <input type="text" class="form-control" id="inputPassword" value="{{post.title}}" name="title">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Post Content</label>
+                       <input type="text" class="form-control" id="inputPassword" value="{{post.title}}" name="title">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Content</label>
+                    <div class="col-sm-10">  
                     <input type="textarea" class="form-control" id="inputPassword" value="{{post.content}}" name="content">
                   </div>
+                </div>
                   <input type="submit" class="btn" value="Submit Changes">
               </div>
               </form>

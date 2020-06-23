@@ -26,7 +26,7 @@ body{
 .container {
     border: 1px solid #86ee60;
     border-radius: 10px;
-    height: 650px;
+    height: 550px;
     margin-left: 60px;
     margin-top: 30px;
     background-color: #f4f7ed;
@@ -41,7 +41,7 @@ body{
 .container1 {
     border: 1px solid #86ee60;
     border-radius: 10px;
-    height: 650px;
+    height: 600px;
     margin-top: 30px;
     background-color: #f4f7ed;
     width: 550px;
@@ -73,6 +73,7 @@ body{
     background-color: #f4f7ed;
     color: #2e6e65;
     
+    
 }
 .card .media a{
     color: #2b3752;
@@ -92,4 +93,7 @@ body{
 }
 .btnadd:hover{
     background-color: #86ee60;
+}
+.pagination li{
+    padding: 10px;
 }
