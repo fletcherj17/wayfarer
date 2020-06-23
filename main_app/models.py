@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import (
+    FieldDoesNotExist, ImproperlyConfigured, ValidationError,
+)
+from django.utils.translation import gettext as _, ngettext
 
 
 # Create your models here.
@@ -33,9 +37,3 @@ class Post(models.Model):
         
     def __str__(self):
         return self.title
-
-
-    
-
-    
-    
