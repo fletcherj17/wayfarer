@@ -124,6 +124,8 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/profile/'
 
+LOGIN_URL = '/loginreq/'
+
 # Add this variable to specify where logging out redirects to
 LOGOUT_REDIRECT_URL = '/'
 

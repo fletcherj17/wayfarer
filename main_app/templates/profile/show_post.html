@@ -27,9 +27,11 @@
         </p>
       </div>
     </div>
+   {% if post.author == user %}
     <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#exampleModal">Edit</button>
     <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#example1Modal">Delete</button>
   </div>
+  {% endif %}
       </div>
   <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

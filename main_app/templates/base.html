@@ -71,7 +71,9 @@
                   <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
                 </div>
               </div>
-               
+              {% if error %}
+              <p>{{error}}</p>
+              {% endif %}
                 <input type="submit" class="btn btn-success" value="Login">
             </form>
             
@@ -93,9 +95,7 @@
                 </button>
                 </div>
                 <div class="modal-body">
-                   {% if error_message %}
-                   <p>{{error_message}}</p>
-                   {% endif %}
+                   
                     <form action="{% url 'home' %}" method="POST" novalidate>
                         {% csrf_token %}
                         {{ form|crispy }}
@@ -113,6 +113,16 @@
     {% if error_message%}
     <script>
         $("#example1Modal").modal('show')
+    </script>
+    {% endif %}
+    {% if error%}
+    <script>
+        $("#exampleModal").modal('show')
+    </script>
+    {% endif %}
+    {% if error1%}
+    <script>
+        $("#exampleModal").modal('show')
     </script>
     {% endif %}
 </body>

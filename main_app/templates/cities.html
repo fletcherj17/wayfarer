@@ -91,13 +91,12 @@
             <form action="{% url 'show_city' city.id %}" method="POST" id="loginForm">
                 {% csrf_token %}
                 <div class="form-group row">
+                    
                     <label for="inputPassword" class="col-sm-2 col-form-label">Title</label>
                     <div class="col-sm-10">
                        
                       <input type="text" class="form-control" id="inputPassword" placeholder="Title" name="title">
-                      {% if error %}
-                      <p>{{error}}</p>
-                      {% endif %}
+                     
                     </div>
                 </div>
                 <div class="form-group row">
@@ -106,8 +105,12 @@
                       <input type="textarea" class="form-control" id="inputPassword" placeholder="Content" name="content">
                       </div>
                     </div>
+                    {% if error %}
+                    <p>{{error}}</p>
+                    {% endif %}
                     <input type="submit" class="btn" value="Create Post">
                 </div>
+                
                 </form>
             
             
