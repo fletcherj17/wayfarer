@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,26 +11,32 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="{% static 'jquery/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>Wayfarer</title>
     {% block head %}
     {% endblock %}
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-light" style="background-color: #2E6E65;">
-            <a class="navbar-brand">Wayfarer</a>
+        <nav class="navbar navbar-light" style="background-color: #f4f7ed;">
             {%if user.is_authenticated%}
+            <a class="navbar-brand" href="/cities/1/">Wayfarer</a>
                 <form class="form-inline" action="{% url 'logout' %}" method="POST">
                     {% csrf_token %}
-                    <input type="submit" class="btn btn-outline-success my-2 my-sm-0" id="logOut" value="Log out">
+                    <input type="submit" class="btn btn-outline-success mr-sm-2" id="logOut" value="Log out">
+                    
+                    <a href="{% url 'profile' %}" class="btn btn-outline-success my-2 my-sm-0" >Profile</a>
+                
                 </form>
+                
                 {% else %}
+                <a class="navbar-brand" href="{% url 'home' %}">Wayfarer</a>
             <form class="form-inline">
                 {% csrf_token %}
                 <button type="button" class="btn btn-outline-success mr-sm-2" id="myInput" data-toggle="modal" data-target="#exampleModal">
                     Log in</button> 
                     
-                <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="myInput" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="myInput" data-toggle="modal" data-target="#example1Modal">
                     Sign up</button>
                 {% endif %}
             </form>
@@ -50,28 +57,73 @@
         </button>
         </div>
         <div class="modal-body">
-            <form action="{% url 'login' %}" method="POST">
+            <form action="{% url 'login' %}" method="POST" id="loginForm">
             {% csrf_token %}
-                <p>Username: <input type="text" name="username"></p>
-                <p>Password: <input type="password" name="password"></p>
-                <input type="submit" class="btn btn-primary" value="Login">
-            </form>
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
-                
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Username</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassword" placeholder="Username" name="username">
+                </div>
             </div>
-            <form action="{% url 'signup' %}" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-            
-                <input type="submit" class="btn btn-primary" value="Signup">
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+                </div>
+              </div>
+              {% if error %}
+              <p>{{error}}</p>
+              {% endif %}
+                <input type="submit" class="btn btn-success" value="Login">
             </form>
+            
+            
         </div>
         
     </div>
     </div>
 </div>
 <!-- modal ends -->
+        <!-- Modal -->
+        <div class="modal fade" id="example1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                   
+                    <form action="{% url 'home' %}" method="POST" novalidate>
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        
+                        <input type="submit" id="sign-up-btn" class="btn btn-primary" value="Sign Up">
+                    </form>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+        <!-- modal ends -->
     </main>
+
+    {% if error_message%}
+    <script>
+        $("#example1Modal").modal('show')
+    </script>
+    {% endif %}
+    {% if error%}
+    <script>
+        $("#exampleModal").modal('show')
+    </script>
+    {% endif %}
+    {% if error1%}
+    <script>
+        $("#exampleModal").modal('show')
+    </script>
+    {% endif %}
 </body>
 </html>

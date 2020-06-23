@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head><link rel="stylesheet" href="{% static 'css/show_post.css' %}"></head>
+<div class='curved upper'>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="#f4f7ed" fill-opacity="1" d="M0,256L40,229.3C80,203,160,149,240,160C320,171,400,245,480,250.7C560,256,640,192,720,144C800,96,880,64,960,90.7C1040,117,1120,203,1200,229.3C1280,256,1360,224,1400,208L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,
+    320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
+</div> 
+<div class="curved">
+ <!-- Page Content -->
+ <div class="container">
+    <div class="row">
+      <!-- Post Content Column -->
+      <div class="col">
+        <!-- Title -->
+        <h1 class="mt-4">{{post.title}}</h1>
+        <!-- Author -->
+        <p class="lead">
+          by {{post.author}}
+        </p>
+        <hr>
+        <!-- Date/Time -->
+        <p>{{post.date}}</p>
+        <hr>
+        <p id="post_content">
+            {{post.content}}
+        </p>
+      </div>
+    </div>
+   {% if post.author == user %}
+    <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#exampleModal">Edit</button>
+    <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#example1Modal">Delete</button>
+  </div>
+  {% endif %}
+      </div>
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Edit {{post.title}}</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+          <form action="{% url 'edit_post' post.id %}" method="POST" id="loginForm">
+              {% csrf_token %}
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Title</label>
+                  <div class="col-sm-10">
+                       <input type="text" class="form-control" id="inputPassword" value="{{post.title}}" name="title">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Content</label>
+                    <div class="col-sm-10">  
+                    <input type="textarea" class="form-control" id="inputPassword" value="{{post.content}}" name="content">
+                  </div>
+                </div>
+                  <input type="submit" class="btn" value="Submit Changes">
+              </div>
+              </form>
+          
+          
+      </div>
+      
+  </div>
+  </div>
+</div>
+<!-- End  Modal -->
+<div class="modal fade" id="example1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Delete {{post.title}}</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+          <p>Are you sure you want to delete {{post.title}}?</p>
+          <form action="{% url 'delete_post' post.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#example1Modal">Confirm Delete</button>
+          </form>
+          
+      </div>
+      
+  </div>
+  </div>
+</div>
+{% endblock %}

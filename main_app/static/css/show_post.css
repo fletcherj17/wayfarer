@@ -1,0 +1,33 @@
+
+body{
+    width: 100vw;
+    height: 100vh;  
+    margin: 0;
+    
+}
+.curved {
+    background: #f4f7ed;
+    color: #2e6e65;
+    text-align: center;
+    margin-top: 0;
+
+}
+.curved.upper{
+    margin-top: 0;
+    background-color: #2b3752 ;
+}
+.mt-4 {
+    color: #2e6e65;
+}
+p {
+    color: #2b3752;
+    word-wrap: break-word;
+}
+#post_content {
+    padding: 50px;
+}
+
+
+.curved svg{
+    display: block;
+}

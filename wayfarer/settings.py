@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,5 +124,8 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/profile/'
 
+LOGIN_URL = '/loginreq/'
+
 # Add this variable to specify where logging out redirects to
 LOGOUT_REDIRECT_URL = '/'
+
