@@ -109,5 +109,11 @@
         </div>
         <!-- modal ends -->
     </main>
+
+    {% if error_message%}
+    <script>
+        $("#example1Modal").modal('show')
+    </script>
+    {% endif %}
 </body>
 </html>
