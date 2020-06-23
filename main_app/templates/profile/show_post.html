@@ -14,25 +14,35 @@
       <div class="col">
         <!-- Title -->
         <h1 class="mt-4">{{post.title}}</h1>
+        <hr>
         <!-- Author -->
-        <p class="lead">
-          by {{post.author}}
-        </p>
-        <hr>
-        <!-- Date/Time -->
-        <p>{{post.date}}</p>
-        <hr>
-        <p id="post_content">
-            {{post.content}}
-        </p>
+        <div class="about">
+          <img src="{% static 'images/avatar.png'%}" alt="avatar">
+          <p class="lead">
+            by {{post.author}}
+          </p>
+          <!-- Date/Time -->
+          <p>{{post.date}}</p>
+        </div>
+
+        <div class="btns">
+          {% if post.author == user %}
+          <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#exampleModal">Edit Post</button><br>
+          <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#example1Modal">Delete Post</button>
+          {% endif %}
+        </div>
+
+        <div class="content">
+          <hr>
+          <p id="post_content">
+              {{post.content}}
+          </p>
+        </div>
+        
       </div>
     </div>
-   {% if post.author == user %}
-    <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#exampleModal">Edit</button>
-    <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#example1Modal">Delete</button>
+    </div>
   </div>
-  {% endif %}
-      </div>
   <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

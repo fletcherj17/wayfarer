@@ -23,8 +23,8 @@
             </div>
         </div>
         
-    <div class="col-sm-4" >
-        <div class="container1">
+        <div class="col-sm-4" >
+            <div class="container1">
             
             <div class="city-card">
                 <h3>{{city.name}}</h3>
@@ -40,7 +40,7 @@
             {% for post in page %}
             <div class="card city">
                 <div class="media">
-                        <img class="mr-3" src="{% static 'images/sanfrancisco.jpeg' %}" alt="Generic placeholder image" width='64' height='64'>
+                        <img class="mr-3" src="{% static 'images/avatar.png' %}" alt="Generic placeholder image" width='64' height='64'>
                     <div class="media-body">
                     <a href="{% url 'show_post' post.id %}" class="title">{{ post.title }}</a>
                     <p>{{post.content}}</p>
@@ -64,14 +64,16 @@
             {% endif %}
             
             <span class="current">
-                Page {{ page.number }} of {{ page.paginator.num_pages }}
+                 {{ page.number }} 
             </span>
             
             {% if page.has_next %}
             <a href="?page={{ page.next_page_number }}">next</a>
             
             {% endif %}
+
         </span>
+    
     </div>
  
 </div>
