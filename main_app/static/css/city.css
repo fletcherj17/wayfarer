@@ -70,12 +70,12 @@ body{
 .city-card img{
     margin-top: 10px;
     float: right;
-    margin-left: 50px; 
+    margin-left: 120px; 
     border-radius: 10px;
     
 }
 .city {
-    width: 500px;
+    width: 530px;
     padding: 5px;
     background-color: #f4f7ed;
     color: #2e6e65;
@@ -97,7 +97,7 @@ body{
     border-radius: 80%;
     color: #2b3752;
     font-size: 30px;
-    margin-left: 390px;
+    margin-left: 420px;
 }
 .btnadd:hover{
     background-color: #86ee60;
