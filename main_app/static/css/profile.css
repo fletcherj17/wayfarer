@@ -16,7 +16,17 @@ body{
 .card{
     margin-bottom: 0.5em;
 }
+.pagination {
+    border: 1px solid green;
+    width: 200px;
+    font-size: 20px;
+    margin-bottom: 10px; 
+    margin-left: 180px;
+}
 
+.pagination a:hover{
+    text-decoration: none;
+}
 .pagination li{
     padding: 10px;
 }
@@ -32,9 +42,9 @@ body{
 
 .curved img {
          
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;    
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;    
     }
 
 .curved.upper {
