@@ -3,6 +3,7 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
+/************* show city css ************ */
 
 .card{
     display: flex;
@@ -41,6 +42,7 @@ body{
     color: #2e6e65;
     margin-top: 5px;
 }
+/*********** Show posts css ********** */
 .container1 {
     border: 1px solid #86ee60;
     border-radius: 10px;
@@ -67,7 +69,8 @@ body{
 }
 .city-card img{
     margin-top: 10px;
-    margin-left: 80px;
+    float: right;
+    margin-left: 50px; 
     border-radius: 10px;
     
 }
@@ -76,7 +79,8 @@ body{
     padding: 5px;
     background-color: #f4f7ed;
     color: #2e6e65;
-    
+    margin-left: 30px;
+    margin-bottom: 10px;
    
 }
 .card .media a{
@@ -98,12 +102,12 @@ body{
 .btnadd:hover{
     background-color: #86ee60;
 }
+/************ Pagination css  *************/
 .pagination {
-    border: 1px solid #86ee60;
-    width: 200px;
+  
     font-size: 20px;
     margin-top: 10px;
-    float: right;
+    float: right; 
     color: #2e6e65;
 }
 .pagination li{

@@ -5,6 +5,7 @@
 <head>
   <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 </head>
+<!-- SVG for wave on the top -->
  <div class='curved upper'>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="#f4f7ed" fill-opacity="1" d="M0,256L40,229.3C80,203,160,149,240,160C320,171,400,245,480,250.7C560,256,640,192,720,144C800,96,880,64,960,90.7C1040,117,1120,203,1200,229.3C1280,256,1360,224,1400,208L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,
     320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
@@ -35,7 +36,7 @@
             <div class="col-sm-8">
               <input type="text" class="form-control" id="inputPassword" name="current_city" value="{{profile.current_city}}">
             </div>
-        </div>
+          </div>
             
             <input type="submit" class="btn btn-outline-success" value="Submit Changes">
         </form>
@@ -74,6 +75,7 @@
       {% endfor %}
     </div>
   </div>
+  <!-- svg for wave on the bottom -->
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="#2b3752" fill-opacity="1" d="M0,160L26.7,138.7C53.3,117,107,75,160,90.7C213.3,107,
     267,181,320,202.7C373.3,224,427,192,480,170.7C533.3,149,587,139,640,117.3C693.3,96,747,
     64,800,85.3C853.3,107,907,181,960,181.3C1013.3,181,1067,107,1120,96C1173.3,85,1227,139,1280,154.7C1333.3,
