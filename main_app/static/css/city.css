@@ -3,6 +3,7 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
+/************* show city css ************ */
 
 .card{
     display: flex;
@@ -28,7 +29,7 @@ body{
     border-radius: 10px;
     height: 500px;
     margin-left: 60px;
-    margin-top: 40px;
+    margin-top: 30px;
     background-color: #f4f7ed;
     width: 350px;
 
@@ -41,12 +42,13 @@ body{
     color: #2e6e65;
     margin-top: 5px;
 }
+/*********** Show posts css ********** */
 .container1 {
     border: 1px solid #86ee60;
     border-radius: 10px;
     overflow: scroll;
     height: 500px;
-    margin-top: 40px;
+    margin-top: 30px;
     background-color: #f4f7ed;
     width: 600px;
     margin-left: 40px;
@@ -67,16 +69,18 @@ body{
 }
 .city-card img{
     margin-top: 10px;
-    margin-left: 80px;
+    float: right;
+    margin-left: 120px; 
     border-radius: 10px;
     
 }
 .city {
-    width: 500px;
+    width: 530px;
     padding: 5px;
     background-color: #f4f7ed;
     color: #2e6e65;
-    
+    margin-left: 30px;
+    margin-bottom: 10px;
    
 }
 .card .media a{
@@ -89,15 +93,28 @@ body{
 .btnadd{
     margin-top: 5px;
     background-color: #f4f7ed;
-    border: 2px solid green;
+    border: 2px solid #86ee60;
     border-radius: 80%;
     color: #2b3752;
     font-size: 30px;
-    margin-left: 390px;
+    margin-left: 420px;
 }
 .btnadd:hover{
     background-color: #86ee60;
 }
+/************ Pagination css  *************/
+.pagination {
+  
+    font-size: 20px;
+    margin-top: 10px;
+    float: right; 
+    color: #2e6e65;
+}
 .pagination li{
     padding: 10px;
+    
+}
+.pagination a:hover{
+    text-decoration: none;
+    color: #2b3752;
 }

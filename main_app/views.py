@@ -1,15 +1,22 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
+
+#auth
 from django.contrib.auth import authenticate, login, logout
-from .forms import SignUpForm
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+
+#forms
+from .forms import SignUpForm
+
+#models
+from django.contrib.auth.models import User
 from .models import Profile, City, Post
+
+# Pagination
 from django.core.paginator import Paginator
 
 
-
-# Create your views here.
+# Home Route
 def home(request):
     error_message = ''
     if request.method == 'POST':
@@ -28,7 +35,7 @@ def home(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'home.html', context)
 
-
+#Login Route
 def user_login(request):
     username = request.POST['username']
     password = request.POST['password']
@@ -39,9 +46,11 @@ def user_login(request):
     else:
         return render(request,'home.html',{'error':'Invalid Username or Password'})
 
+#Handling authorization Route
 def loginreq(request):
     return render(request,'home.html',{'error1': True})
 
+#Logout Route
 def user_logout(request):
     logout(request)
     return redirect('home')
@@ -63,7 +72,7 @@ def profile(request):
         context = {'profile': profile, 'posts': posts,'cities':cities, 'page': page}
         return render(request, 'profile.html', context)
 
-# Length validator
+# Length validator - Custom Function to check error 
 def length_validator(title,content):
         if title == '':
             return "This title is too short. It must contain at least 1 character."
@@ -72,6 +81,7 @@ def length_validator(title,content):
         else:
             return False
 
+# Show cities And posts on Cities Page
 @login_required
 def show_city(request,city_id):
     cities = City.objects.all()
@@ -97,13 +107,14 @@ def show_city(request,city_id):
         context = {'city':city, 'posts':posts,'cities':cities,'page':page}
         return render(request,'cities.html',context)
 
+#Show Post Route
 @login_required
 def show_post(request, post_id):
     post = Post.objects.get(id=post_id)
-
     context = {'post': post,'user':request.user}
     return render(request, 'profile/show_post.html', context)
 
+# Edit Post Route
 @login_required
 def edit_post(request, post_id):
     post = Post.objects.get(id=post_id)
@@ -112,6 +123,7 @@ def edit_post(request, post_id):
     post.save()
     return redirect('show_post', post_id=post.id)
 
+# Delete Post Route
 @login_required
 def delete_post(request, post_id):
     post = Post.objects.get(id=post_id)

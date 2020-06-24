@@ -6,7 +6,7 @@
   </head>
   
     <div class="row">
-        
+        <!-- Show all cities -->
         <div class="col-sm-4" >
             <div class="container">
                 <h3 > Cities</h3>
@@ -22,7 +22,7 @@
                 {% endfor %}
             </div>
         </div>
-        
+        <!-- Cities end -->
         <div class="col-sm-4" >
             <div class="container1">
             
@@ -37,6 +37,7 @@
                 <button type="submit" class="btnadd" id="modal-btn" data-toggle="modal" data-backdrop="static" data-target="#add-post-modal" >+</button>
               
             </div>
+            <!-- Show all posts -->
             {% for post in page %}
             <div class="card city">
                 <div class="media">
@@ -50,34 +51,35 @@
             {% endfor %}
            
         </div>
-
+        <!-- pagination -->
+        <div class="pagination">
+            <span class="step-links">
+               
+               {% if page.has_previous %}
+              
+               <a href="?page={{ page.previous_page_number }}">previous |</a>
+               
+               {% endif %}
+               
+               <span class="current">
+                    page {{ page.number }} of {{page.paginator.num_pages}}
+               </span>
+               
+               {% if page.has_next %}
+               <a href="?page={{ page.next_page_number }}">| next</a>
+               
+               {% endif %}
+   
+           </span>
+       
+       </div>
+    
         
     </div>
   
-    <div class="pagination">
-         <span class="step-links">
-            
-            {% if page.has_previous %}
-           
-            <a href="?page={{ page.previous_page_number }}">previous</a>
-            
-            {% endif %}
-            
-            <span class="current">
-                 {{ page.number }} 
-            </span>
-            
-            {% if page.has_next %}
-            <a href="?page={{ page.next_page_number }}">next</a>
-            
-            {% endif %}
-
-        </span>
     
-    </div>
- 
 </div>
-<!-- Modal -->
+<!-- Add Post Modal -->
 <div class="modal fade" id="add-post-modal" tabindex="-1" role="dialog" aria-labelledby="add-post-modalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -122,6 +124,7 @@
     
 </div>
 <!-- End  Modal -->
+<!-- script for handling errors -->
 {% if error%}
 <script>
     $("#add-post-modal").modal('show')
