@@ -35,10 +35,10 @@
                 <a class="navbar-brand" id="logo" href="{% url 'home' %}">Wayfarer</a>
             <form class="form-inline">
                 {% csrf_token %}
-                <button type="button" class="btn btn-outline-success mr-sm-2" id="myInput" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-outline-success mr-sm-2" id="modal-btn" data-toggle="modal" data-target="#loginModal">
                     Log in</button> 
                     
-                <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="myInput" data-toggle="modal" data-target="#example1Modal">
+                <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="modal-btn" data-toggle="modal" data-target="#signupModal">
                     Sign up</button>
                 {% endif %}
             </form>
@@ -49,11 +49,11 @@
         {% block content %}
         {% endblock %}
         <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Log in</h5>
+        <h5 class="modal-title" id="loginModalLabel">Log in</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -87,11 +87,11 @@
 </div>
 <!-- modal ends -->
         <!-- Modal -->
-        <div class="modal fade" id="example1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+                    <h5 class="modal-title" id="loginModalLabel">Sign up</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -114,17 +114,17 @@
 
     {% if error_message%}
     <script>
-        $("#example1Modal").modal('show')
+        $("#signupModal").modal('show')
     </script>
     {% endif %}
     {% if error%}
     <script>
-        $("#exampleModal").modal('show')
+        $("#loginModal").modal('show')
     </script>
     {% endif %}
     {% if error1%}
     <script>
-        $("#exampleModal").modal('show')
+        $("#loginModal").modal('show')
     </script>
     {% endif %}
 </body>
