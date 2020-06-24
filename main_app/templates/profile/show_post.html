@@ -27,8 +27,8 @@
 
         <div class="btns">
           {% if post.author == user %}
-          <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#exampleModal">Edit Post</button><br>
-          <button class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#example1Modal">Delete Post</button>
+          <button class="btn btn-outline-success" id="modal-btn" data-toggle="modal" data-target="#edit-modal">Edit Post</button><br>
+          <button class="btn btn-outline-success" id="modal-btn" data-toggle="modal" data-target="#delete-modal">Delete Post</button>
           {% endif %}
         </div>
 
@@ -44,11 +44,11 @@
     </div>
   </div>
   <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="edit-modalLabel" aria-hidden="true">
   <div class="modal-dialog">
   <div class="modal-content">
       <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Edit {{post.title}}</h5>
+      <h5 class="modal-title" id="edit-modalLabel">Edit {{post.title}}</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
       </button>
@@ -79,11 +79,11 @@
   </div>
 </div>
 <!-- End  Modal -->
-<div class="modal fade" id="example1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="edit-modalLabel" aria-hidden="true">
   <div class="modal-dialog">
   <div class="modal-content">
       <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Delete {{post.title}}</h5>
+      <h5 class="modal-title" id="edit-modalLabel">Delete {{post.title}}</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
       </button>
@@ -92,7 +92,7 @@
           <p>Are you sure you want to delete {{post.title}}?</p>
           <form action="{% url 'delete_post' post.id %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn btn-outline-success" id="myInput" data-toggle="modal" data-target="#example1Modal">Confirm Delete</button>
+            <button type="submit" class="btn btn-outline-success" id="modal-btn" data-toggle="modal" data-target="#delete-modal">Confirm Delete</button>
           </form>
           
       </div>

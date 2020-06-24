@@ -34,7 +34,7 @@
             <div class="city-card">
                 <h3 class="post">Posts</h3>
              
-                <button type="submit" class="btnadd" id="myInput" data-toggle="modal" data-backdrop="static" data-target="#exampleModal" >+</button>
+                <button type="submit" class="btnadd" id="modal-btn" data-toggle="modal" data-backdrop="static" data-target="#add-post-modal" >+</button>
               
             </div>
             <!-- Show all posts -->
@@ -80,11 +80,11 @@
     
 </div>
 <!-- Add Post Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="add-post-modal" tabindex="-1" role="dialog" aria-labelledby="add-post-modalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create New Post</h5>
+        <h5 class="modal-title" id="add-post-modalLabel">Create New Post</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -127,7 +127,7 @@
 <!-- script for handling errors -->
 {% if error%}
 <script>
-    $("#exampleModal").modal('show')
+    $("#add-post-modal").modal('show')
 </script>
 {% endif %}
 {% endblock %} 

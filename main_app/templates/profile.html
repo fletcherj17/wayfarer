@@ -19,11 +19,11 @@
           <h3 class="card-title">{{profile.name}}</h3>
           <p class="card-text">{{profile.current_city}}</p>
           <p class="card-text">{{profile.join_date}}</p>
-          <button class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <button class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#editProfileForm" aria-expanded="false" aria-controls="editProfileForm">
             Edit Profile
           </button>
           <p>
-        <form class="collapse" id="collapseExample" action="{% url 'profile' %}" method="POST">
+        <form class="collapse" id="editProfileForm" action="{% url 'profile' %}" method="POST">
             {% csrf_token %}
             <div class="form-group row">
               <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
