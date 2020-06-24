@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/city.css' %}">
+  </head>
+  
+    <div class="row">
+        <!-- Show all cities -->
+        <div class="col-sm-4" >
+            <div class="container">
+                <h3 > Cities</h3>
+                {% for city in cities %}
+                <a href="/cities/{{city.id}}/">
+                <div class='card '>
+
+                    <img class="mr-3" src="/static/{{city.url}}" alt="Generic placeholder image" width='64' height='64'> 
+                    <h5 class="mt-0">{{ city.name }}</h5>
+                
+                </div>
+                </a>    
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Cities end -->
+        <div class="col-sm-4" >
+            <div class="container1">
+            
+            <div class="city-card">
+                <h3>{{city.name}}</h3>
+                <img class="mr-3" src="/static/{{city.url}}" alt="Generic placeholder image" width='250' height='150'>
+
+            </div>
+            <div class="city-card">
+                <h3 class="post">Posts</h3>
+             
+                <button type="submit" class="btnadd" id="modal-btn" data-toggle="modal" data-backdrop="static" data-target="#add-post-modal" >+</button>
+              
+            </div>
+            <!-- Show all posts -->
+            {% for post in page %}
+            <div class="card city">
+                <div class="media">
+                        <img class="mr-3" src="{% static 'images/avatar.png' %}" alt="Generic placeholder image" width='64' height='64'>
+                    <div class="media-body">
+                    <a href="{% url 'show_post' post.id %}" class="title">{{ post.title }}</a>
+                    <p>{{post.content}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+           
+        </div>
+        <!-- pagination -->
+        <div class="pagination">
+            <span class="step-links">
+               
+               {% if page.has_previous %}
+              
+               <a href="?page={{ page.previous_page_number }}">previous |</a>
+               
+               {% endif %}
+               
+               <span class="current">
+                    page {{ page.number }} of {{page.paginator.num_pages}}
+               </span>
+               
+               {% if page.has_next %}
+               <a href="?page={{ page.next_page_number }}">| next</a>
+               
+               {% endif %}
+   
+           </span>
+       
+       </div>
+    
+        
+    </div>
+  
+    
+</div>
+<!-- Add Post Modal -->
+<div class="modal fade" id="add-post-modal" tabindex="-1" role="dialog" aria-labelledby="add-post-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="add-post-modalLabel">Create New Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <form action="{% url 'show_city' city.id %}" method="POST" id="loginForm">
+                {% csrf_token %}
+                <div class="form-group row">
+                    
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Title</label>
+                    <div class="col-sm-10">
+                       
+                      <input type="text" class="form-control" id="inputPassword" placeholder="Title" name="title">
+                     
+                    </div>
+                </div>
+                <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Content</label>
+                      <div class="col-sm-10">  
+                      <input type="textarea" class="form-control" id="inputPassword" placeholder="Content" name="content">
+                      </div>
+                    </div>
+                    {% if error %}
+                    <p>{{error}}</p>
+                    {% endif %}
+                    <input type="submit" class="btn" value="Create Post">
+                </div>
+                
+                </form>
+            
+            
+        </div>
+        
+    </div>
+    
+    </div>
+    
+</div>
+<!-- End  Modal -->
+<!-- script for handling errors -->
+{% if error%}
+<script>
+    $("#add-post-modal").modal('show')
+</script>
+{% endif %}
+{% endblock %} 

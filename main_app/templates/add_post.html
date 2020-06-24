@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'add_post' city.id %}" method="POST" id="loginForm">
+    {% csrf_token %}
+    <div class="form-group row">
+        
+        <div class="col-sm-10">
+            <label for="inputTitle" class="col-sm-2 col-form-label">Post Title</label>
+          <input type="text" class="form-control" id="inputTitle" placeholder="Title" name="title">
+          <label for="inputContent" class="col-sm-2 col-form-label">Post Content</label>
+          <input type="textarea" class="form-control" id="inputContent" placeholder="Content" name="content">
+        </div>
+        <input type="submit" class="btn" value="Create Post">
+    </div>
+    </form>
+{% endblock %}
