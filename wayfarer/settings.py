@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -129,3 +130,4 @@ LOGIN_URL = '/loginreq/'
 # Add this variable to specify where logging out redirects to
 LOGOUT_REDIRECT_URL = '/'
 
+django_heroku.settings(locals())
