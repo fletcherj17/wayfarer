@@ -62,7 +62,9 @@
            {% endif %}
        </span>
     </div>
-   
+      {% if posts|length == 0 %}
+      <p>You haven't written any posts yet! <a href="/cities/1/">Create a new post...</a></p>
+      {% endif %}
       {% for post in page %}
       <div class="card">
        
